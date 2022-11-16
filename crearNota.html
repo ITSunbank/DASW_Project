@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List master</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:orange ;">
+        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
+        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Notas compartidas</a>
+        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Etiquetas</a>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a class="nav-link" style="color:green"><i class="fa fa-user"></i></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#login" style="color:green; font-family:Montserrat; font-weight: bold;">My username</a>
+                </li>
+                <li>
+                    <a class="nav-link" style="color:green"><i class="fa fa-window-close"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#registro" style="color:green; font-family:Montserrat; font-weight: bold;">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="creacinNotas" class="body">
+        <div class="flex-grow-1">
+            <form class="form-inline">
+                <h1 style="color:orange">+ CREACIÓN DE NOTAS</h1>
+            </form>
+        </div>
+        <div class="flex-grow-2">
+            <table>
+                <tr>
+                  <th><h3 class="list-item">NOMBRE DE LA NOTA</h3></th>
+                  <th><h3 class="list-item">ETIQUETA</h3></th>
+                  <th>Country</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+              </table>        </div>
+    </div>
+
+</body>
+</html>

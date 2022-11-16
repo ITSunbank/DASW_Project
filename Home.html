@@ -20,6 +20,9 @@
             max-height: 200px;
             width: auto;
         }
+
+        
+
     </style>
 
     </head>
@@ -27,15 +30,15 @@
   <body>
 
     <!--Navbar-->
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand nav-item nav-link active" href="Home.html">Justoze-us</a>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-white">
+        <img src="src/list.png"  href="Home.html">
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#login">Iniciar sesión</a>
+                    <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#login" style="color: black; font-size: 20px ;font-family:Montserrat;">Iniciar sesión</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#registro">Registrarse</a>
+                <li class="nav-item">   
+                    <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#registro" style="color: black; font-size: 20px;font-family:Montserrat; ">Registrarse</a>
                 </li>
             </ul>
         </div>
@@ -92,7 +95,7 @@
                 <div class="modal-footer">
                     <div class="container-fluid">
                         <div class="form-group">
-                            <button type="button" class="btn btn-success" style="width: 100%">Login</button>
+                            <button type="button" class="btn btn-success" style="width: 100%"  onclick= "location.href='MisNotas.html'">Login</button>
                         </div>
                         <div class="form-group">
                             <div style="border-top: 1px solid #888; padding-top: 15px; font-size: 85%">
@@ -135,13 +138,16 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" style="width: 100%">Registrarse</button>
+                    <button id = "register_button"type="button" class="btn btn-success" style="width: 100%">Registrarse</button>
                 </div>
 
             </div>
         </div>
     </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- Imagenes inferiores -->
     <section class="section-soluciones padding pt-0">
 		<div class="container">
@@ -150,7 +156,7 @@
 			<div class="row mx-md-5 mt-md-5">
 				<div class="col-12 col-md-4 p-1" data-entrance="from-right" data-entrance-delay="100">
 						<div class="solucion">
-							<img src="https://media.istockphoto.com/photos/young-creative-people-working-together-in-office-picture-id544119946" class="img-fluid" alt="Imagen 1" title="Soluciones residenciales" style="height:250px;">
+							<img src="https://media.istockphoto.com/photos/young-creative-people-working-together-in-office-picture-id544119946" id= "img1"class="img-fluid" alt="Imagen 1" title="Soluciones residenciales" style="height:250px;">
 							<div class="text text-center d-flex flex-column justify-content-center">
 								<span class="h4 f600 d-block mb-0" style="color:DarkSalmon; font-family:Montserrat; font-weight: bold;">Organizate <br>Mejor</span>
 							</div>
@@ -158,7 +164,7 @@
 				</div>
 				<div class="col-12 col-md-4 p-1" data-entrance="from-right" data-entrance-delay="200">
 						<div class="solucion">
-							<img src="https://th.bing.com/th/id/OIP.whpct6xE2XjmlTPdru-36gHaE8?pid=ImgDet&rs=1" class="img-fluid" alt="Imagen 2" title="Soluciones comerciales" style="height:250px;">
+							<img src="https://th.bing.com/th/id/OIP.whpct6xE2XjmlTPdru-36gHaE8?pid=ImgDet&rs=1"id= "img2" class="img-fluid" alt="Imagen 2" title="Soluciones comerciales" style="height:250px;">
 							<div class="text text-center d-flex flex-column justify-content-center">
 								<span class="h4 f600 d-block mb-0" style="color:DarkSalmon; font-family:Montserrat; font-weight: bold;">Soluciona <br>Tu vida</span>
 							</div>
@@ -166,7 +172,7 @@
 				</div>
 				<div class="col-12 col-md-4 p-1" data-entrance="from-right" data-entrance-delay="300">
 						<div class="solucion">
-						<img src="https://th.bing.com/th/id/OIP.7Bge6CjDZCokVGy8WrUtdgHaEK?pid=ImgDet&rs=1" class="img-fluid" alt="Imagen 3" title="Soluciones industriales" style="height:250px;">
+						<img src="https://th.bing.com/th/id/OIP.7Bge6CjDZCokVGy8WrUtdgHaEK?pid=ImgDet&rs=1" id= "img3"class="img-fluid" alt="Imagen 3" title="Soluciones industriales" style="height:250px;">
 						<div class="text text-center d-flex flex-column justify-content-center">
 							<span class="h4 f600 d-block mb-0" style="color:DarkSalmon; font-family:Montserrat; font-weight: bold;">Mejora <br>tu desempeño</span>
 						</div>
