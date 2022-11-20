@@ -43,6 +43,7 @@
         </div>
       </div>
 
+
     <div id="cuerpoNotas" class="cuerpo">
         <div class="flex-grow-1">
             <form class="form-inline ">
@@ -53,22 +54,88 @@
         <br>
         <br>
         <div class="flex-grow-2">
-            <ol>
-                <li>
-                    <p class="list-item">Pendientes de proyecto de web <i class="fa fa-trash" style="color:green"></i><i class="fa fa-edit" style="color:green"></i></p>
-                </li>
-                <li>
-                    <p class="list-item">Escuela <i class="fa fa-trash" style="color:green"></i><i class="fa fa-edit" style="color:green"></i></p>
-                </li>
-                <li>
-                    <p class="list-item">Contexto histórico <i class="fa fa-trash" style="color:green"></i><i class="fa fa-edit" style="color:green"></i></p>
-                </li>
-            </ol>
+            <table class="default mx-md-4 mt-md-4" >
+
+                <tr>
+              
+                  <td> <p class="list-item">Escuela</p></td>
+              
+                  <td class="allign right"><button type="button" class="btn btn-primary active mx-md-4 "><i class="fa fa-edit" data-toggle="modal" data-target="#editCarrito"></i></td>
+              
+                  <td></button><button class="btn btn-danger mx-md-1"><i class="fa fa-trash"></i></button></td>
+              
+                </tr>
+              
+                <tr>
+              
+                  <td> <p class="list-item">Trabajo</p></td>
+              
+                  <td><button type="button" class="btn btn-primary active mx-md-4 "><i class="fa fa-edit" data-toggle="modal" data-target="#editCarrito"></i></td>
+              
+                  <td></button><button class="btn btn-danger mx-md-1"><i class="fa fa-trash"></i></button></td>
+              
+                </tr>
+
+                <tr>
+              
+                    <td> <p class="list-item">Personal</p></td>
+                
+                    <td><button type="button" class="btn btn-primary active mx-md-4 "><a><i class="fa fa-edit" data-toggle="modal" data-target="#edittag"></i></a></td>
+                
+                    <td></button><button class="btn btn-danger mx-md-1"><i class="fa fa-trash"></i></button></td>
+                
+                  </tr>
+              
+              </table>
+        
         </div>
         <div class="flex-grow-3">
             <button class="btn btn-outline-light col-sm-3 col-lg-2 mx-md-3 mt-md-3" type="submit" style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">CREAR ETIQUETA</button>
         </div>
     </div>
+
+      <!-- Modal para editar cantidades a comprar -->
+      <div class="modal fade" id="edittag" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">Crea tu nueva etiqueta:</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <input id="cantidad" type="number" name="Cantidad" min="0">
+                        <input type="text" class="d-none" name="productId" id="editCart" aria-describedby="helpId">
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-start">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" >Agregar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para eliminar productos del carrito de compra -->
+    <div class="modal fade" id="deleteProduct" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">¿Estás seguro que quieres eliminar este producto del carrito?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                <div class="modal-footer d-flex justify-content-start">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 </html>
