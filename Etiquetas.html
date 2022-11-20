@@ -9,39 +9,49 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:orange ;">
-        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Mis notas</a>
-        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Notas compartidas</a>
-        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat; font-weight: bold;">Etiquetas</a>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav ml-auto">
-                <li>
-                    <a class="nav-link" style="color:green"><i class="fa fa-user"></i></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#login" style="color:green; font-family:Montserrat; font-weight: bold;">My username</a>
-                </li>
-                <li>
-                    <a class="nav-link" style="color:green"><i class="fa fa-user-times"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#registro" style="color:green; font-family:Montserrat; font-weight: bold;">Salir</a>
-                </li>
-            </ul>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-sm navbar-dark bg-white" style="background-color:orange ;">
+    <img src="src/list.png"  href="Home.html">
+    <a class="navbar-brand nav-item nav-link active" href="MisNotas.html" style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
+    <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Notas compartidas</a>
+    <a class="navbar-brand nav-item nav-link active" href="Etiquetas.html" style="color:green; font-family:Montserrat;">Etiquetas</a>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav ml-auto">
+            <li>
+                <a class="nav-link" style="color:green"><i class="fa fa-user"></i></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#login" style="color:green; font-family:Montserrat; font-weight: bold;">My username</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#registro" style="color:green; font-family:Montserrat; font-weight: bold;">Salir</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <!-- Imagen principal -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="img">
+          <div class="img">
+            <img class="d-block w-100 h-20" src="./src/Etiquetas_banner.jpg" alt="First slide">
+          </div>
         </div>
-    </nav>
+      </div>
 
     <div id="cuerpoNotas" class="cuerpo">
         <div class="flex-grow-1">
-            <form class="form-inline">
-                <h1 style="color:orange">ETIQUETAS</h1>
-                <input class="form-control col-sm-5" type="text" placeholder="Buscar etiquetas">
+            <form class="form-inline ">
+           
+                <input class="mx-md-4 mt-md-4 form-control col-sm-11" type="text" placeholder="Buscar etiquetas">
             </form>
         </div>
+        <br>
+        <br>
         <div class="flex-grow-2">
             <ol>
                 <li>
@@ -56,7 +66,7 @@
             </ol>
         </div>
         <div class="flex-grow-3">
-            <button class="btn btn-outline-light col-sm-3 col-lg-2" type="submit" style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">Crear nota</button>
+            <button class="btn btn-outline-light col-sm-3 col-lg-2 mx-md-3 mt-md-3" type="submit" style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">CREAR ETIQUETA</button>
         </div>
     </div>
 

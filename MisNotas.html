@@ -13,9 +13,8 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:orange ;">
-        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat; font-weight: bold; ">Menu principal</a>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-white" style="background-color:orange ;">
+        <img src="src/list.png"  href="Home.html">
         <a class="navbar-brand nav-item nav-link active" href="MisNotas.html" style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
         <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Notas compartidas</a>
         <a class="navbar-brand nav-item nav-link active" href="Etiquetas.html" style="color:green; font-family:Montserrat;">Etiquetas</a>
@@ -29,21 +28,30 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#registro" style="color:green; font-family:Montserrat; font-weight: bold;">Salir</a>
+                    <a class="nav-item nav-link mr-2" href="Home.html" id="reg" data-toggle="modal" data-target="#registro" style="color:green; font-family:Montserrat; font-weight: bold;">Salir</a>
                 </li>
             </ul>
         </div>
     </nav>
+        <!-- Imagen principal -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="img">
+              <div class="img">
+                <img class="d-block w-100 h-20" src="./src/Notas_banner.jpg" alt="First slide">
+              </div>
+            </div>
+          </div>
 
     <div id="cuerpoNotas" class="cuerpo">
         <div class="flex-grow-1">
             <form class="form-inline">
                 <p style="color:white">No se ve</p>
-                <input class="form-control col-sm-7" type="text" placeholder="Buscador de notas y etiquetas">
-                <button type="button" class="btn btn-success col-sm-3 col-lg-2" onclick= "location.href='crearNota.html'" style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">Crear nota</button>
+                <input class="mx-md-4 mt-md-4 form-control col-sm-8" type="text" placeholder="Buscador de notas y etiquetas">
+                <button type="button" class="btn btn-success col-sm-3 col-lg-2 mx-md-4 mt-md-4 " onclick= "location.href='crearNota.html'" style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">Crear nota</button>
             </form>
         </div>
     </div>
+<br>
 
     <!--Mis tarjetas-->
     <div class="container">
