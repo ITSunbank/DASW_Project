@@ -149,10 +149,45 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <!-- Modal para enviar correo electrónico -->
+    <form enctype="text/plain" method="post" action="mailto:christian.pereda@iteso.mx?cc=oscar.vallejo@iteso.mx&subject=Buen día, me gustaría recibir la siguiente información acerca de su aplicación">
+        <div class="modal fade" id="corr" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Enviar correo electrónico</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="username"></label>
+                                    <input type="text" id="username" name="Nombre" class="form-control mt-3" placeholder="Nombre(s)">
+                                </div>
+                                <div class="col-6">
+                                    <label for="apellidos"></label>
+                                    <input type="text" id="apellidos" name="Apellido" class="form-control mt-3" placeholder="Apellidos">
+                                </div>
+                            </div>
+                            <br/>
+                            <textarea type="email" id="texto" name="Comentarios" cols="60" rows="4" placeholder="Agrega tus comentarios o dudas"></textarea>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="send_button" type="submit" class="btn btn-success" style="width: 100%">Enviar correo</button>
+                        <button id="cancel_button" type="button" class="btn btn-danger" style="width: 100%">Cancelar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+
     <!-- Imagenes inferiores -->
     <section class="section-soluciones padding pt-0">
 		<div class="container">
@@ -186,6 +221,14 @@
 			</div>
 		</div>
 	</section>
+    <!-- <form enctype="text/plain" method="post" action="mailto:christian.pereda@iteso.mx?cc=soporte@bpmit.mx&subject=Hola"> -->
+    <br/><br/><br/><br/>
+    <div class="form-group">
+        <div style="border-top: 1px solid #888; padding-top: 15px; font-size: 85%">
+            ¿Tienes dudas?
+            <a href="#" data-toggle="modal" data-target="#corr">Envíanos un correo electrónico...</a>
+        </div>
+    </div>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
