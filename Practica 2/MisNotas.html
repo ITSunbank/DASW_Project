@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List master</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <style>
+        #zoom {
+        width: 253px;
+        height: auto;
+        transition: transform ease-in-out 0.3s;
+        }
+
+        #zoom:hover { transform: scale(1.2); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-white" style="background-color:orange ;">
+        <img src="src/list.png"  href="Home.html">
+        <a class="navbar-brand nav-item nav-link active" href="MisNotas.html" style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
+        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Notas compartidas</a>
+        <a class="navbar-brand nav-item nav-link active" href="Etiquetas.html" style="color:green; font-family:Montserrat;">Etiquetas</a>
+        <div class="collapse navbar-collapse" id="collapsibleNav">
+            <ul class="navbar-nav ml-auto">
+                <li>
+                    <a class="nav-link" style="color:green"><i class="fa fa-user"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link mr-2" href="#" id="logi" style="color:green; font-family:Montserrat; font-weight: bold;">My username</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#adiosq"
+                        style="color:red; font-family:Montserrat; font-weight: bold;">Salir</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <!-- Imagen principal -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="img">
+              <div class="img">
+                <img class="d-block w-100 h-20" src="./src/Notas_banner.jpg" alt="First slide">
+              </div>
+            </div>
+          </div>
+
+    <div id="cuerpoNotas" class="cuerpo">
+        <div class="flex-grow-1">
+            <form class="form-inline">
+                <p style="color:white">No se ve</p>
+                <input class="mx-md-4 mt-md-4 form-control col-sm-8" type="text" placeholder="Buscador de notas y etiquetas">
+                <button type="button" class="btn btn-success col-sm-3 col-lg-2 mx-md-4 mt-md-4 " onclick= "location.href='crearNota.html'" style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">Crear nota</button>
+            </form>
+        </div>
+    </div>
+
+    <!--Mis tarjetas-->
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 1">
+                <div class="card-body">
+                    <h4 class="card-title">Pendientes de clase</h4>
+                    <div class="atributos"></div>
+                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 2">
+                <div class="card-body">
+                    <h4 class="card-title">Pendientes de clase</h4>
+                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 3">
+                <div class="card-body">
+                    <h4 class="card-title">Pendientes de clase</h4>
+                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 4">
+                <div class="card-body">
+                    <h4 class="card-title">Pendientes de clase</h4>
+                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para cerrar sesión -->
+    <div class="modal fade" id="adiosq" tabindex="-1" role="dialog" aria-labelledby="modelTitleId">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">¿Estás seguro que quieres salir de tu sesión?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                <div class="modal-footer d-flex justify-content-start">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript (Importante el orden en el que se llaman ;)-->
+    <script src="./utils.js"></script>  
+    <script src="./tags.js"></script>
+    <script src="./notes.js"></script>
+    <script src="./index.js"></script>
+    <script src="./data_handler.js"></script>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+</body>
+</html>
