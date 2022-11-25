@@ -18,17 +18,17 @@ createNote(nota1);
 createNote(nota2);
 
 
-console.table(getTags());
-console.table(getNotes());
-
-//updateNote(nota1._uuid, silla2);
-//updateTag(tag1._uuid, tag2);
-
 //console.table(getTags());
 //console.table(getNotes());
+
+// updateNote(nota1._uuid, nota2);
+// updateTag(tag1._uuid, tag2);
+
+// console.table(getTags());
+// console.table(getNotes());
 
 // deleteTag(tag1._uuid);
 // deleteNote(nota1._uuid);
 
-//console.table(getTags());
-//console.table(getNotes());
+// console.table(getTags());
+// console.table(getNotes());

@@ -1,0 +1,18 @@
+{
+  "name": "practica-3",
+  "version": "1.0.0",
+  "description": "Proyecto de notas",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "postman"
+  ],
+  "author": "Christian, Sebastian",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

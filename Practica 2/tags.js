@@ -69,3 +69,5 @@ class Tag {
     }
 
 }
+
+// export const createFromObject = createFromObject();

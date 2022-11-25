@@ -15,7 +15,7 @@ function getNoteById(uuid) {
 }
 
 function createNote(newNote) {
-    notes.push(notes.createFromObject(newNote));
+    notes.push(Note.createFromObject(newNote));
 }
 
 function updateNote(uuid, newNote) {
@@ -52,7 +52,7 @@ function getTagById(uuid) {
 }
 
 function createTag(newTag) {
-    tags.push(tags.createFromObject(newTag));
+    tags.push(Tag.createFromObject(newTag));
 }
 
 function updateTag(uuid, newTag) {
