@@ -2,13 +2,16 @@
 
 const express = require('express');
 const router = express.Router();
-const adminNoteRouter = require('../routes/admin_notes');
+
 const Notes = require('../routes/notes');
-
-const adminTagRouter = require('../routes/admin_tags');
 const Tags = require('../routes/tags');
-//const products = require('../routes/products');
+const Users = require('../routes/users');
 
+// router.use('/MisNotas',express.static('./app/views/MisNotas.html'));
+
+router.use('/notes', Notes);
+router.use('/tags', Tags);
+router.use('/users', Users);
 
 router.get('/', (req, res) => {
     res.send('Proyecto final - Note Master');

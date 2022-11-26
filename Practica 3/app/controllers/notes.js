@@ -1,5 +1,7 @@
 "use strict";
 
+const { generateUUID } = require("./utils");
+
 class NoteException {
     constructor(errorMessage) {
         this.errorMessage = errorMessage;
@@ -31,9 +33,9 @@ class Note {
         throw new NoteException("Note UUIDs are auto-generated.");
     }
     set title(value) {
-        if(typeof value !== 'string' || value === '') {
-            throw new NoteException("Invalid title for the note");
-        }
+        // if(typeof value !== 'string' || value === '') {
+        //     throw new NoteException("Invalid title for the note");
+        // }
         this._title = value;
     }
     set tag(value) {
@@ -43,9 +45,9 @@ class Note {
         this._tag = value;
     }
     set description(value) {
-        if(typeof value !== 'string' || value === '') {
-            throw new NoteException("Invalid description for the note");
-        }
+        // if(typeof value !== 'string' || value === '') {
+        //     throw new NoteException("Invalid description for the note");
+        // }
         this._description = value;
     }
 
