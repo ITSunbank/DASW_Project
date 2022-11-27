@@ -6,6 +6,18 @@ async function loadNotes(url) {
     return await response.json();
 }
 
+async function loadTags(url) {
+    let response = await fetch(url);
+    if(response.status != 200) return [];
+    return await response.json();
+}
+
+async function loadTagM2O(url) {
+    let response = await fetch(url);
+    if(response.status != 200) return [];
+    return await response.json();
+}
+
 function getXhrResponse(xhr, onSuccess, onError) {
     if(xhr.status == 200) {
         onSuccess(xhr.responseText);
