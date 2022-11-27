@@ -26,7 +26,7 @@ router.route('/')
             }
             if(num == 0){
                 let nom = dataHandler.createUser(user);
-                res.status(201).send(`User ${nom.title} created`);
+                res.status(201).send(`User ${nom.nombre} created`);
             }
         } catch(e) {
             res.status(400).send(`Invalid properties. ${num} missing properties`);
@@ -41,7 +41,7 @@ router.route('/:id')
             let nom = dataHandler.updateUser(id, user);
             if(nom != -1){
                 res.type('text/plain; charset=utf-8');
-                res.status(200).send(`User ${nom.title} was updated!`);
+                res.status(200).send(`User ${nom.nombre} was updated!`);
             }
             else {
                 res.status(404).send(`User not found`);
@@ -56,7 +56,7 @@ router.route('/:id')
 
         if(toDelete != -1) {
             res.type('text/plain; charset=utf-8');
-            res.status(200).send(`User ${toDelete.title} was deleted!`);
+            res.status(200).send(`User ${toDelete.nombre} was deleted!`);
         } else {
             res.status(404).send(`User not found`);
         }
