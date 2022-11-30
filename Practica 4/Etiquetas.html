@@ -21,8 +21,6 @@
         <img src="src/list.png" href="Home.html">
         <a class="navbar-brand nav-item nav-link active" href="MisNotas.html"
             style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
-        <a class="navbar-brand nav-item nav-link active" href="Home.html"
-            style="color:green; font-family:Montserrat;">Notas compartidas</a>
         <a class="navbar-brand nav-item nav-link active" href="Etiquetas.html"
             style="color:green; font-family:Montserrat;">Etiquetas</a>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -54,7 +52,7 @@
     <div id="cuerpoNotas" class="cuerpo">
         <div class="flex-grow-1">
             <form class="form-inline ">
-                <input class="mx-md-4 mt-md-4 form-control col-sm-11" type="text" placeholder="Buscar etiquetas">
+                <input class="mx-md-5 mt-md-4 form-control col-sm-11" id="searchbar" onkeyup="search_tag()" name="search"type="text" placeholder="Buscar etiquetas">
             </form>
         </div>
         <br>
@@ -90,7 +88,7 @@
         </div>
     </div>
     <div class="flex-grow-3">
-        <button class="btn btn-outline-light col-sm-3 col-lg-2 mx-md-3 mt-md-3" data-toggle="modal" data-target="#addTag" type="button"
+        <button class="btn btn-outline-light col-sm-3 col-lg-3 mx-md-3 mt-md-3" data-toggle="modal" data-target="#addTag" type="button"
         style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">CREAR ETIQUETA</button>
     </div>
 
@@ -160,7 +158,7 @@
                     </form>
                 </div>
                 <div class="modal-footer" style="background-color: lightgreen;">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Agregar</button>
+                    <button type="button" class="btn btn-success" id="tagbtn" data-dismiss="modal">Agregar</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
@@ -182,6 +180,23 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+        // JavaScript code
+        function search_tag() {
+            let input = document.getElementById('searchbar').value
+            input = input.toLowerCase();
+            let x = document.getElementsByClassName('list-item');
+            let y = document.getElementsByClassName('default mx-md-4 mt-md-4');
+
+            for (i = 0; i < x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    y[i].style.display = "none";
+                } else {
+                    y[i].style.display = "list-item";
+                }
+            }
+        }
     </script>
 
 </body>

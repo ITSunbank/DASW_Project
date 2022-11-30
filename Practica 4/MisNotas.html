@@ -23,6 +23,8 @@
         #zoom:hover {
             transform: scale(1.2);
         }
+
+        
     </style>
 </head>
 
@@ -32,8 +34,6 @@
         <img src="src/list.png" href="Home.html">
         <a class="navbar-brand nav-item nav-link active" href="MisNotas.html"
             style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
-        <a class="navbar-brand nav-item nav-link active" href="Home.html"
-            style="color:green; font-family:Montserrat;">Notas compartidas</a>
         <a class="navbar-brand nav-item nav-link active" href="Etiquetas.html"
             style="color:green; font-family:Montserrat;">Etiquetas</a>
         <div class="collapse navbar-collapse" id="collapsibleNav">
@@ -110,6 +110,25 @@
         </div>
     </div>
 
+    <!-- Modal para eliminar notas -->
+    <div class="modal fade" id="deleteNote" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">¿Estás seguro que quieres eliminar esta nota?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                <div class="modal-footer d-flex justify-content-start">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Modal para agregar notas nuevas -->
     <div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -125,7 +144,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <p>Escribe el título de tu nota: </p>
-                                <input type="text" id="username" name="username" class="form-control mt-3"
+                                <input type="text" id="notename" name="notename" class="form-control mt-3"
                                     placeholder="Nombre de etiqueta">
                             </div>
                             <div class="col-6">
@@ -148,12 +167,14 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Agregar</button>
+                    <button type="button" class="btn btn-success" id="notebtn" data-dismiss="modal">Agregar</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <p id="jsonText"></p>
 
     <!-- Modal para cerrar sesión -->
     <div class="modal fade" id="adiosq" tabindex="-1" role="dialog" aria-labelledby="modelTitleId">
@@ -175,9 +196,12 @@
 
     <!-- Optional JavaScript (Importante el orden en el que se llaman ;)-->
     <script src="./notes.js"></script>
+    <script src="./tags.js"></script>
     <script src="./ajax_handler.js"></script>
     <script src="./utils.js"></script>
+    <script src="./tag_utils.js"></script>
     <script src="./note_utils.js"></script>
+  
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -206,6 +230,8 @@
             }
         }
     </script>
+
+
 </body>
 
 </html>

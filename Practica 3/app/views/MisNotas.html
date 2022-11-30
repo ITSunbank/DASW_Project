@@ -26,7 +26,6 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-white" style="background-color:orange ;">
         <img src="src/list.png"  href="Home.html">
         <a class="navbar-brand nav-item nav-link active" href="MisNotas.html" style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
-        <a class="navbar-brand nav-item nav-link active" href="Home.html" style="color:green; font-family:Montserrat;">Notas compartidas</a>
         <a class="navbar-brand nav-item nav-link active" href="Etiquetas.html" style="color:green; font-family:Montserrat;">Etiquetas</a>
         <div class="collapse navbar-collapse" id="collapsibleNav">
             <ul class="navbar-nav ml-auto">
@@ -97,6 +96,8 @@
         </div>
     </div>
 
+    
+
     <!-- Modal para cerrar sesión -->
     <div class="modal fade" id="adiosq" tabindex="-1" role="dialog" aria-labelledby="modelTitleId">
         <div class="modal-dialog" role="document">
@@ -109,6 +110,24 @@
                         </div>
                 <div class="modal-footer d-flex justify-content-start">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" >Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Modal para eliminar productos del carrito de compra -->
+     <div class="modal fade" id="deleteNote" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title">¿Estás seguro que quieres eliminar esta nota?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                        </div>
+                <div class="modal-footer d-flex justify-content-start">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
                     <button type="button" class="btn btn-success" data-dismiss="modal" >Cancelar</button>
                 </div>
             </div>

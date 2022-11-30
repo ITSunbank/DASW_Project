@@ -25,3 +25,38 @@ function getXhrResponse(xhr, onSuccess, onError) {
         onError(xhr.status + ': ' + xhr.statusText);
     }
 }
+//------- Notes -------
+function loadMyNotes(url, noteList, onSuccess, onError) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open('POST', url);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(noteList));
+    xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
+}
+
+function DeleteMyNote(url, onSuccess, onError) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open('DELETE', url);
+    xhr.send();
+    xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
+}
+
+//------- Tags -------
+function loadMyTags(url, tagList, onSuccess, onError) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open('POST', url);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(tagList));
+    xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
+}
+
+function DeleteMyTag(url, onSuccess, onError) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.open('DELETE', url);
+    xhr.send();
+    xhr.onload = () => getXhrResponse(xhr, onSuccess, onError);
+}

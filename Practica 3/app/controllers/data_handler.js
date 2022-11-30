@@ -22,7 +22,6 @@ function getNoteById(uuid) {
 function createNote(newNote) {
     let note = Note.createFromObject(newNote);
     notes.push(note);
-
     fs.writeFileSync('./app/data/notes.json', JSON.stringify(notes));
     return note;
 }
