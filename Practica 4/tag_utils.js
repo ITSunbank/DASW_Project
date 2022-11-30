@@ -2,15 +2,14 @@
 
 function tagToHtml(tag) {
     return `
-    <table class="default mx-md-4 mt-md-4">
-        <tr >
+    <table class="default mx-md-4 mt-md-4" id="zoom">
+        <tr>
             <td>
                 <h4 class="list-item" style="color:green; font-family:Montserrat; font-weight: bold;">${tag._title}</h4>
                 
                 <p class="list-item1" style="font-family:Montserrat; font-weight: bold;">${tag._description}</p>
             </td>
-            <td class="allign right"><button type="button" class="btn btn-primary active mx-md-4 "><i
-                        class="fa fa-edit" data-toggle="modal" data-target="#edittag"></i>
+            <td class="allign right">
                         <button type="button" class="btn btn-danger mx-md-1" onclick="removeTag('${tag._uuid}')"><i
                         class="fa fa-trash"></i>
                         </td>

@@ -1,9 +1,1 @@
-[{
-    "_uuid": "e4113128-ebe0-447c-ad20-90265f0bfd8d",
-    "_title": "Bases de datos",
-    "_description": "Realizar respaldo de base de datos"
-}, {
-    "_uuid": "e4113128-ebe0-447c-ad20-90265f0bfd8f1",
-    "_title": "BPMIT",
-    "_description": "Pendientes de la cubana"
-}]
+[{"_uuid":"e4113128-ebe0-447c-ad20-90265f0bfd8d","_title":"Bases de datos","_description":"Realizar respaldo de base de datos"},{"_uuid":"e4113128-ebe0-447c-ad20-90265f0bfd8f1","_title":"BPMIT","_description":"Pendientes de la cubana"},{"_uuid":"a7d8ccdb-6b16-4906-b325-47d784c0ae9b","_title":"DASW","_description":"CreaciOn de proyectos"}]

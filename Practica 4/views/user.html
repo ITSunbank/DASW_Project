@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List master</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+
+    <style>
+        #zoom {
+            width: 253px;
+            height: auto;
+            transition: transform ease-in-out 0.3s;
+        }
+
+        #zoom:hover {
+            transform: scale(1.2);
+        }
+
+         /*Navbar style*/
+         ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        ul li {
+            list-style: none;
+            margin: 0 20px;
+            transition: 0.5s;
+        }
+
+        ul li a {
+            display: block;
+            position: relative;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 18px;
+            font-family: sans-serif;
+            color: #fff;
+            text-transform: uppercase;
+            transition: 0.5s;
+        }
+
+
+
+        ul li a:hover {
+            transform: scale(1);
+            color: #fff;
+        }
+
+        ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #FEC63D;
+            transition: 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: -1;
+        }
+
+        ul li a:hover:before {
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+   <!--Navbar-->
+   <nav class="navbar navbar-expand-sm navbar-dark bg-white">
+    <img src="src/list.png" href="Home.html">
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-item nav-link mr-2" href="/Practica 4/MisNotas.html" id="mynotes"
+                    style="color: #2DCB70; font-size: 20px;font-family:Montserrat; ">Mis notas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link mr-2" href="/Practica 4/Etiquetas.html" id="mytags"
+                    style="color: #2DCB70; font-size: 20px;font-family:Montserrat; ">Etiquetas</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#adiosq"
+                style="color:red; font-family:Montserrat; font-weight: bold;">Salir</a>
+            </li>
+    
+        </ul>
+    </div>
+</nav>
+    <!-- Imagen principal -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="img">
+            <div class="img">
+                <img class="d-block w-100 h-20" src="./src/users.jpeg" alt="First slide">
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript (Importante el orden en el que se llaman ;)-->
+    <script src="./notes.js"></script>
+    <script src="./tags.js"></script>
+    <script src="./ajax_handler.js"></script>
+    <script src="./utils.js"></script>
+    <script src="./tag_utils.js"></script>
+    <script src="./note_utils.js"></script>
+  
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script>
+        // JavaScript code
+        function search_note() {
+            let input = document.getElementById('searchbar').value
+            input = input.toLowerCase();
+            let x = document.getElementsByClassName('card-title');
+            let y = document.getElementsByClassName('card');
+
+            for (i = 0; i < x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    y[i].style.display = "none";
+                } else {
+                    y[i].style.display = "list-item";
+                }
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

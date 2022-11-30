@@ -23,6 +23,57 @@
         #zoom:hover {
             transform: scale(1.2);
         }
+        /*Navbar style*/
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        ul li {
+            list-style: none;
+            margin: 0 20px;
+            transition: 0.5s;
+        }
+
+        ul li a {
+            display: block;
+            position: relative;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 18px;
+            font-family: sans-serif;
+            color: #fff;
+            text-transform: uppercase;
+            transition: 0.5s;
+        }
+
+
+
+        ul li a:hover {
+            transform: scale(1);
+            color: #fff;
+        }
+
+        ul li a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #FEC63D;
+            transition: 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: -1;
+        }
+
+        ul li a:hover:before {
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(1);
+        }
 
         
     </style>
@@ -30,25 +81,33 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-white" style="background-color:orange ;">
+  
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-white">
         <img src="src/list.png" href="Home.html">
-        <a class="navbar-brand nav-item nav-link active" href="MisNotas.html"
-            style="color:green; font-family:Montserrat; font-weight: bold; ">Mis notas</a>
-        <a class="navbar-brand nav-item nav-link active" href="Etiquetas.html"
-            style="color:green; font-family:Montserrat;">Etiquetas</a>
-        <div class="collapse navbar-collapse" id="collapsibleNav">
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+
             <ul class="navbar-nav ml-auto">
-                <li>
-                    <a class="nav-link" style="color:green"><i class="fa fa-user"></i></a>
+                <li class="nav-item">
+                    <a class="nav-item nav-link mr-2" href="MisNotas.html" id="mynotes"
+                        style="color: #2DCB70; font-size: 20px;font-family:Montserrat; ">Mis notas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-item nav-link mr-2" href="#" id="logi"
-                        style="color:green; font-family:Montserrat; font-weight: bold;">My username</a>
+                    <a class="nav-item nav-link mr-2" href="Etiquetas.html" id="mytags"
+                        style="color: #2DCB70; font-size: 20px;font-family:Montserrat; ">Etiquetas</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link mr-2" href="#" id="reg" data-toggle="modal" data-target="#adiosq"
-                        style="color:red; font-family:Montserrat; font-weight: bold;">Salir</a>
+                
+                <li class="nav-item form-inline">
+                    <a class="nav-link a" style="color:green"><i class="fa fa-user"></i></a>
+                    <a class="nav-item nav-link mr-2" href="/Practica 4/views/user.html" id="user"
+                        style="color: #2DCB70; font-size: 20px;font-family:Montserrat; ">Mi Usuario</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#adiosq"
+                    style="color:red; font-family:Montserrat; font-weight: bold;">Salir</a>
+                </li>
+        
             </ul>
         </div>
     </nav>
