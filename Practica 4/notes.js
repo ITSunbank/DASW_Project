@@ -1,7 +1,5 @@
 "use strict";
 
-const { generateUUID } = require("./utils");
-
 class NoteException {
     constructor(errorMessage) {
         this.errorMessage = errorMessage;

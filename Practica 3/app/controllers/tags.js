@@ -1,7 +1,5 @@
 "use strict";
 
-const { generateUUID } = require("./utils");
-
 class TagException {
     constructor(errorMessage) {
         this.errorMessage = errorMessage;
@@ -10,7 +8,7 @@ class TagException {
 
 class Tag {
     constructor(title, description) {
-        this._uuid = generateUUID();
+        this._uuid = Tag.generateUUID();
         this.title = title;
         this.description = description;
     }
@@ -41,34 +39,19 @@ class Tag {
         this._description = value;
     }
 
-//------- Funciones estAticas -------
+    static generateTag(tag) {
+        let title = tag.title != undefined ? tag.title : tag._title;
+        let description = tag.description != undefined ? tag.description : tag._description;
 
-    static createFromJson(jsonValue) {  //MEtodos que pertenecen a la clase, no al objeto, eso es el static. Para poder hacer un Tag.cleanObject() por ejemplo.
-        let obj = JSON.parse(jsonValue);
-        return Tag.createFromObject(obj);
+        return new Tag(title, description);
     }
 
-    static createFromObject(obj) {
-        let newTag = {};
-        Object.assign(newTag, obj); //This will clone original object, but also handle possible non-object values.
-        Tag.cleanObject(newTag);
-
-        //Convert from newTag to Tag instance
-        let tag = new Tag(newTag._title, newTag._description);
-
-        if('_uuid' in newTag) {
-            tag._uuid = newTag._uuid;
+    static generateUUID() {
+        let uid = '';
+        for (let i = 0; i < 10; i++) {
+            uid += Math.trunc(Math.random() * 10);
         }
-        return tag;
-    }
-
-    static cleanObject(obj) {
-        //Verify that we only contain the desired properties
-        let properties = ['_uuid', '_title', '_description'];
-        for(let prop in obj) {
-            //if prop in properties continue, else delete.
-            if(!obj.hasOwnProperty(prop)) delete obj[prop];
-        }
+        return uid;
     }
 
 }

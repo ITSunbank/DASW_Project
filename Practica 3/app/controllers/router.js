@@ -17,12 +17,4 @@ router.get('/', (req, res) => {
     res.send('Proyecto final - Note Master');
 });
 
-// function validateAdmin(req, res, next) {
-//     let adminToken = req.get('x-auth');
-//     if (adminToken == undefined || adminToken != "admin") {
-//         return res.status(403).send("Acceso no permitido");
-//     }
-//     next(); //Si es admin continuamos.
-// }
-
 module.exports = router;

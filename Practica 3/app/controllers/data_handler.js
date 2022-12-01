@@ -1,54 +1,52 @@
 "use strict";
 //------- Notes -------
+const Note = require('./../models/note');
 
-const fs = require('fs');
-const Note = require('./notes');
-
-let content = fs.readFileSync('./app/data/notes.json');
-const notes = JSON.parse(content).map(Note.createFromObject);
-
-function getNotes() {
-    return notes;
+function getNotes(req, res) {
+    Note.find({})
+        .then(notes => res.status(200).json(notes))
+        .catch(err => res.status(400).send(err));
 }
 
-function getNoteById(uuid) {
-    for(let i=0 ; i<notes.length ; i++) {
-        if(notes[i]._uuid == uuid) {
-            return notes[i];
-        }
+function getNoteById(req, res) {
+    let uuid = req.params.uuid;
+
+    Note.findOne({'uuid': `${uuid}`})
+        .then(note => res.status(200).json(note))
+        .catch(err => res.status(400).send(err));
+}
+
+function createNote(req, res) {
+    let note = Note(req.body);
+    note.save()
+        .then(note => {
+            res.type('text/plain')
+            res.send(`Note ${note._title} was created!`)
+        })
+        .catch(err => res.status(400).send(err));
+}
+
+function updateNote(req, res) {
+    let uuid = req.params.uuid;
+    let updatedNote = req.body;
+    for (let property in updatedNote) {
+        if (['title', 'tag', 'description'].includes(property)) continue;
+        delete updatedNote[property];
     }
+
+    Note.findOneAndUpdate({uuid: `${uuid}`}, updatedNote, {new: true}).then(note => {
+        res.type('text/plain; charset=utf-8');
+        res.send(`Note ${note.title} was updated!`);
+    });
 }
 
-function createNote(newNote) {
-    let note = Note.createFromObject(newNote);
-    notes.push(note);
-    fs.writeFileSync('./app/data/notes.json', JSON.stringify(notes));
-    return note;
-}
+function deleteNote(req, res) {
+    let uuid = req.params.uuid;
 
-function updateNote(uuid, newNote) {
-    for(let i=0 ; i<notes.length ; i++) {
-        if(notes[i]._uuid == uuid) {
-            Object.assign(notes[i], newNote);
-            fs.writeFileSync('./app/data/notes.json', JSON.stringify(notes));
-            return notes[i];
-        }
-    }
-    return -1;
-
-}
-
-function deleteNote(uuid) {
-    for(let i=0 ; i<notes.length ; i++) {
-        if(notes[i]._uuid == uuid) {
-            let deleted = notes[i];
-            notes.splice(i, 1);
-            fs.writeFileSync('./app/data/notes.json', JSON.stringify(notes));
-
-            return deleted;
-        }
-    } 
-    return -1;
+    Note.findOneAndDelete({uuid: `${uuid}`}).then(note => {
+        res.type('text/plain; charset=utf-8');
+        res.send(note != undefined ? `Note ${note.title} was deleted!` : `No note with id ${uuid} was found!`);
+    });
 }
 
 exports.getNotes = getNotes;
@@ -59,55 +57,55 @@ exports.deleteNote = deleteNote;
 
 
 //------- Tags -------
-const Tag = require('./tags');
+const Tag = require('./../models/tag');
 
-let content2 = fs.readFileSync('./app/data/tags.json');
-let tags = JSON.parse(content2).map(Tag.createFromObject);
-
-function getTags() {
-    return tags;
+function getTags(req, res) {
+    Tag.find({})
+        .then(tags => res.status(200).json(tags))
+        .catch(err => res.status(400).send(err));
 }
 
-function getTagById(uuid) {
-    for(let i=0 ; i<tags.length ; i++) {
-        if(tags[i]._uuid == uuid) {
-            return tags[i];
-        }
+function getTagById(req, res) {
+    let uuid = req.params.uuid;
+
+    Tag.findOne({
+            'uuid': `${uuid}`
+        })
+        .then(tag => res.status(200).json(tag))
+        .catch(err => res.status(400).send(err));
+}
+
+function createTag(req, res) {
+    let tag = Tag(req.body);
+    tag.save()
+        .then(tag => {
+            res.type('text/plain')
+            res.send(`Tag ${tag._title} was created!`)
+        })
+        .catch(err => res.status(400).send(err));
+}
+
+function updateTag(req, res) {
+    let uuid = req.params.uuid;
+    let updatedTag = req.body;
+    for (let property in updatedTag) {
+        if (['title', 'description'].includes(property)) continue;
+        delete updatedTag[property];
     }
+
+    Tag.findOneAndUpdate({uuid: `${uuid}`}, updatedTag, {new: true}).then(tag => {
+        res.type('text/plain; charset=utf-8');
+        res.send(`Tag ${tag.title} was updated!`);
+    });
 }
 
-function createTag(newTag) {
-    let tag = Tag.createFromObject(newTag);
-    tags.push(tag);
-    
-    fs.writeFileSync('./app/data/tags.json', JSON.stringify(tags));
-    return tag;  
-}
+function deleteTag(req, res) {
+    let uuid = req.params.uuid;
 
-function updateTag(uuid, newTag) {
-    for(let i=0 ; i<tags.length ; i++) {
-        if(tags[i]._uuid == uuid) {
-            Object.assign(tags[i], newTag);
-            fs.writeFileSync('./app/data/tags.json', JSON.stringify(tags));
-            return tags[i];
-        }
-        
-    }
-    return -1;
-
-}
-
-function deleteTag(uuid) {
-    for(let i=0 ; i<tags.length ; i++) {
-        if(tags[i]._uuid == uuid) {
-            let deleted = tags[i];
-            tags.splice(i, 1);
-            fs.writeFileSync('./app/data/tags.json', JSON.stringify(tags));
-
-            return deleted;
-        }
-    } 
-    return -1;
+    Tag.findOneAndDelete({uuid: `${uuid}`}).then(tag => {
+        res.type('text/plain; charset=utf-8');
+        res.send(tag != undefined ? `Tag ${tag.title} was deleted!` : `No tag with id ${uuid} was found!`);
+    });
 }
 
 exports.getTags = getTags;
@@ -117,60 +115,62 @@ exports.updateTag = updateTag;
 exports.deleteTag = deleteTag;
 
 //------- Users -------
-const User = require('./users');
+const User = require('./../models/user');
 
-let content3 = fs.readFileSync('./app/data/users.json');
-let users = JSON.parse(content3).map(User.createFromObject);
-
-function getUsers() {
-    return users;
+function getUsers(req, res) {
+    User.find({})
+        .then(users => res.status(200).json(users))
+        .catch(err => res.status(400).send(err));
 }
 
-function getUserById(uuid) {
-    for(let i=0 ; i<users.length ; i++) {
-        if(users[i]._uuid == uuid) {
-            return users[i];
-        }
+function getUserByEmail(req, res) {
+    let email = req.params.email;
+
+    User.findOne({
+            'email': `${email}`
+        })
+        .then(user => res.status(200).json(user))
+        .catch(err => res.status(400).send(err));
+}
+
+function createUser(req, res) {
+    let user = User(req.body);
+    user.save()
+        .then(user => {
+            res.type('text/plain')
+            res.send(`User ${user._nombre} was created!`)
+        })
+        .catch(err => res.status(400).send(err));
+}
+
+function updateUser(req, res) {
+    let email = req.params.email;
+    let updatedUser = req.body;
+    for (let property in updatedUser) {
+        if (['nombre', 'apellido', 'correo', 'contraseña'].includes(property)) continue;
+        delete updatedUser[property];
     }
+
+    User.findOneAndUpdate({email: `${email}`}, updatedUser, {new: true}).then(user => {
+        res.type('text/plain; charset=utf-8');
+        res.send(`User ${user.firstName} was updated!`);
+    });
 }
 
-function createUser(newUser) {
-    let user = User.createFromObject(newUser);
-    users.push(user);
-    
-    fs.writeFileSync('./app/data/users.json', JSON.stringify(users));
-    return user;  
+function deleteUser(req, res) {
+    let email = req.params.email;
+
+    User.findOneAndDelete({email: `${email}`}).then(user => {
+        res.type('text/plain; charset=utf-8');
+        res.send(user != undefined ? `User ${user.firstName} was deleted!` : `No user with email ${email} was found!`);
+    });
 }
 
-function updateUser(uuid, newUser) {
-    for(let i=0 ; i<users.length ; i++) {
-        if(users[i]._uuid == uuid) {
-            Object.assign(users[i], newUser);
-            fs.writeFileSync('./app/data/users.json', JSON.stringify(users));
-            return users[i];
-        }
-        
-    }
-    return -1;
 
-}
-
-function deleteUser(uuid) {
-    for(let i=0 ; i<users.length ; i++) {
-        if(users[i]._uuid == uuid) {
-            let deleted = users[i];
-            users.splice(i, 1);
-            fs.writeFileSync('./app/data/users.json', JSON.stringify(users));
-            return deleted;
-        }
-    } 
-    return -1;
-}
 
 
 exports.getUsers = getUsers;
-exports.getUserById = getUserById;
+exports.getUserByEmail = getUserByEmail;
 exports.createUser = createUser;
 exports.updateUser = updateUser;
-exports.deleteUser= deleteUser;
-
+exports.deleteUser = deleteUser;
