@@ -23,7 +23,6 @@
         #zoom:hover {
             transform: scale(1.2);
         }
-
         /*Navbar style*/
         ul {
             margin: 0;
@@ -75,12 +74,12 @@
             transform-origin: left;
             transform: scaleX(1);
         }
+
+        
     </style>
 </head>
 
 <body>
-
-
 
     <!--Navbar-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-white">
@@ -96,7 +95,7 @@
                     <a class="nav-item nav-link mr-2" href="Etiquetas.html" id="mytags"
                         style="color: #2DCB70; font-size: 20px;font-family:Montserrat; ">Etiquetas</a>
                 </li>
-
+                
                 <li class="nav-item form-inline">
                     <a class="nav-link a" style="color:green"><i class="fa fa-user"></i></a>
                     <a class="nav-item nav-link mr-2" href="user.html" id="user"
@@ -104,9 +103,9 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-item nav-link mr-2" href="#" id="log" data-toggle="modal" data-target="#adiosq"
-                        style="color:red; font-family:Montserrat; font-weight: bold;">Salir</a>
+                    style="color:red; font-family:Montserrat; font-weight: bold;">Salir</a>
                 </li>
-
+        
             </ul>
         </div>
     </nav>
@@ -114,86 +113,60 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="img">
             <div class="img">
-                <img class="d-block w-100 h-20" src="./src/Notas_banner.jpg" alt="First slide">
+                <img class="d-block w-100 h-20" src="./src/Etiquetas_banner.jpg" alt="First slide">
             </div>
         </div>
     </div>
 
     <div id="cuerpoNotas" class="cuerpo">
         <div class="flex-grow-1">
-            <form class="form-inline">
-                <p style="color:white">No se ve</p>
-                <input id="searchbar" onkeyup="search_note()" name="search"
-                    class="mx-md-4 mt-md-4 form-control col-sm-8" type="text"
-                    placeholder="Buscador de notas y etiquetas"> <button type="button"
-                    class="btn btn-success col-sm-3 col-lg-2 mx-md-4 mt-md-4" data-toggle="modal" data-target="#addNote"
-                    style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">Crear
-                    nota</button>
+            <form class="form-inline ">
+                <input class="mx-md-5 mt-md-4 form-control col-sm-11" id="searchbar" onkeyup="search_tag()" name="search"type="text" placeholder="Buscar etiquetas">
             </form>
         </div>
+        <br>
+        <br>
     </div>
-
-    <!--Mis tarjetas-->
     <div class="container">
-        <div class="row" id="mainList">
-            <!-- <div class="card">
-                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 1">
-                <div class="card-body">
-                    <h4 class="card-title">Pendientes de clase</h4>
-                    <div class="atributos"></div>
-                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 2">
-                <div class="card-body">
-                    <h4 class="card-title">Pendientes de clase</h4>
-                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 3">
-                <div class="card-body">
-                    <h4 class="card-title">Pendientes de clase</h4>
-                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" id="zoom" style="height:150px;" src="https://th.bing.com/th/id/OIP.CTOWMdntrL0Vnt-xvgzIoAHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Imagen 4">
-                <div class="card-body">
-                    <h4 class="card-title">Pendientes de clase</h4>
-                    <p class="card-text">#Escuela <i class="fa fa-check" style="color:green"></i></p>
-                </div>
-            </div> -->
+        <div class="row" id="mainTagList">
+            <!-- <table class="default mx-md-4 mt-md-4">
+                <tr>
+                    <td>
+                        <h4 class="list-item" style="color:green; font-family:Montserrat; font-weight: bold;">Escuela</h4>
+                        
+                        <p class="list-item" style="font-family:Montserrat; font-weight: bold;">Descdfdsfus</p>
+                    </td>
+                    <td class="allign right"><button type="button" class="btn btn-primary active mx-md-4 "><i
+                                class="fa fa-edit" data-toggle="modal" data-target="#editCarrito"></i></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4 class="list-item" style="color:green; font-family:Montserrat; font-weight: bold;">Trabajo</h4>
+                    </td>
+                    <td><button type="button" class="btn btn-primary active mx-md-4 "><i class="fa fa-edit"
+                                data-toggle="modal" data-target="#editCarrito"></i></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4 class="list-item" style="color:green; font-family:Montserrat; font-weight: bold;">Personal</h4>
+                    </td>
+                    <td><button type="button" class="btn btn-primary active mx-md-4 "><a><i class="fa fa-edit"
+                                    data-toggle="modal" data-target="#edittag"></i></a></td>
+                </tr>
+            </table> -->
         </div>
     </div>
-
-    <!-- Modal para eliminar notas -->
-    <div class="modal fade" id="deleteNote" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">¿Estás seguro que quieres eliminar esta nota?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-footer d-flex justify-content-start">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Eliminar</button>
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
+    <div class="flex-grow-3">
+        <button class="btn btn-outline-light col-sm-3 col-lg-3 mx-md-3 mt-md-3" data-toggle="modal" data-target="#addTag" type="button"
+        style="background-color: orange; color:green; font-family:Montserrat; font-weight: bold;">CREAR ETIQUETA</button>
     </div>
 
-
-    <!-- Modal para agregar notas nuevas -->
-    <div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <!-- Modal para editar las etiquetas -->
+    <div class="modal fade" id="edittag" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Crear nota nueva</h5>
+                <div class="modal-header"  style="background-color: lightgreen">
+                    <h5 class="modal-title">Editar etiqueta</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -202,65 +175,70 @@
                     <form>
                         <div class="row">
                             <div class="col-6">
-                                <p>Escribe el título de tu nota: </p>
-                                <input type="text" id="notename" name="notename" class="form-control mt-3"
+                                <p>Agrega el nuevo nombre de tu etiqueta: </p>
+                                <input type="text" id="username" name="username" class="form-control mt-3"
                                     placeholder="Nombre de etiqueta">
                             </div>
                             <div class="col-6">
-                                <img class="d-block w-100 h-20" src="./src/notas.png" alt="Nota" width="200"
-                                    height="100">
+                                <img class="d-block w-100 h-20" src="./src/tag.png" alt="Nota" width="200"
+                                    height="150">
                             </div>
                         </div>
                         <br />
-                        <p>Escoge una etiqueta para la nota: </p>
-                        <select name="Nivel de tontismo" id="tagM2O">
-                            <!-- <option value="op1">Muy wey</option>
-                            <option value="op2">Si</option>
-                            <option value="op2">Un chingo</option>
-                            <option value="op2">Bastante</option> -->
-                        </select>
-                        <br />
-                        <p>Ingresa la descripción de nota: </p>
+                        <p>Escribe la descripción de la etiqueta: </p>
                         <textarea type="text" id="descNote" name="descNote" class="form-control mt-3"
                             placeholder="Descripción" rows="4"></textarea>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" id="notebtn" data-dismiss="modal">Agregar</button>
+                <div class="modal-footer"  style="background-color: lightgreen">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Guardar</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <p id="jsonText"></p>
-
-    <!-- Modal para cerrar sesión -->
-    <div class="modal fade" id="adiosq" tabindex="-1" role="dialog" aria-labelledby="modelTitleId">
+     <!-- Modal para agregar etiquetas nuevas -->
+    <div class="modal fade" id="addTag" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">¿Estás seguro que quieres salir de tu sesión?</h5>
+                <div class="modal-header" style="background-color: lightgreen;">
+                    <h5 class="modal-title">Crear etiqueta nueva</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-footer d-flex justify-content-start">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancelar</button>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-6 form-inline">
+                                <p>Escribe el título la etiqueta: </p>
+                                <input type="text" id="tagname" name="name" class="form-control mt-3"
+                                    placeholder="Nombre de etiqueta">
+                            </div>
+                            <div class="col-6 form-inline">
+                                
+                                    <img src="src/Tag.png" width="200px" height="150px">
+                            </div>
+                        </div>
+                        <p>Ingresa la descripción de la etiqueta: </p>
+                        <textarea type="text" id="descTag" name="Description" class="form-control mt-3"
+                            placeholder="Descripción" rows="4"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer" style="background-color: lightgreen;">
+                    <button type="button" class="btn btn-success" id="tagbtn" data-dismiss="modal">Agregar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Optional JavaScript (Importante el orden en el que se llaman ;)-->
-    <script src="/Practica 3/notes.js"></script>
     <script src="/Practica 3/tags.js"></script>
     <script src="/Practica 3/ajax_handler.js"></script>
     <script src="/Practica 3/utils.js"></script>
     <script src="/Practica 3/tag_utils.js"></script>
-    <script src="/Practica 3/note_utils.js"></script>
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -274,11 +252,11 @@
     </script>
     <script>
         // JavaScript code
-        function search_note() {
+        function search_tag() {
             let input = document.getElementById('searchbar').value
             input = input.toLowerCase();
-            let x = document.getElementsByClassName('card-title');
-            let y = document.getElementsByClassName('card');
+            let x = document.getElementsByClassName('list-item');
+            let y = document.getElementsByClassName('default mx-md-4 mt-md-4');
 
             for (i = 0; i < x.length; i++) {
                 if (!x[i].innerHTML.toLowerCase().includes(input)) {
@@ -289,7 +267,6 @@
             }
         }
     </script>
-
 
 </body>
 
