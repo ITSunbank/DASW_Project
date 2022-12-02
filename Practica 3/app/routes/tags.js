@@ -8,7 +8,7 @@ router.route('/')
     .get((req, res) => dataHandler.getTags(req, res))
     .post((req, res) => dataHandler.createTag(req, res));
 
-router.route('/:id')
+router.route('/:title')
     .put((req, res) => dataHandler.getTagById(req, res))
     .delete((req, res) => dataHandler.deleteTag(req, res));
 

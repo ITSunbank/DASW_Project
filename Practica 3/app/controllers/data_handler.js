@@ -21,7 +21,7 @@ function createNote(req, res) {
     note.save()
         .then(note => {
             res.type('text/plain')
-            res.send(`Note ${note._title} was created!`)
+            res.send(`Note ${note.title} was created!`)
         })
         .catch(err => res.status(400).send(err));
 }
@@ -41,11 +41,11 @@ function updateNote(req, res) {
 }
 
 function deleteNote(req, res) {
-    let uuid = req.params.uuid;
+    let tit = req.params.title;
 
-    Note.findOneAndDelete({uuid: `${uuid}`}).then(note => {
+    Note.findOneAndDelete({title: tit}).then(note => {
         res.type('text/plain; charset=utf-8');
-        res.send(note != undefined ? `Note ${note.title} was deleted!` : `No note with id ${uuid} was found!`);
+        res.send(note != undefined ? `Note ${tit} was deleted!` : `No note with title ${tit} was found!`);
     });
 }
 
@@ -100,11 +100,11 @@ function updateTag(req, res) {
 }
 
 function deleteTag(req, res) {
-    let uuid = req.params.uuid;
+    let tit = req.params.title;
 
-    Tag.findOneAndDelete({uuid: `${uuid}`}).then(tag => {
+    Tag.findOneAndDelete({title: tit}).then(tag => {
         res.type('text/plain; charset=utf-8');
-        res.send(tag != undefined ? `Tag ${tag.title} was deleted!` : `No tag with id ${uuid} was found!`);
+        res.send(tag != undefined ? `Tag ${tit} was deleted!` : `No tag with id ${tit} was found!`);
     });
 }
 

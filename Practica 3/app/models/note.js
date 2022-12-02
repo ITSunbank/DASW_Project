@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const button = document.getElementById('notebtn');
 
 let mongoDB = 'mongodb+srv://admin:admin@cluster0.wafdbbb.mongodb.net/UsuariosDB';
 mongoose.connect(mongoDB, {
@@ -48,5 +49,19 @@ let Note = mongoose.model('note', noteSchema);
 //         .catch(err => console.log(err));
 // })
 
+// button.onclick = function() {
+//     let newNote = {
+//         title: document.getElementById("notename").value,
+//         tag: document.getElementById("tagM2O").value,
+//         description : document.getElementById("descNote").value
+//     }
+
+//     let note = Note(newNote);
+    
+// //     //Guardamos el usuario en nuestra UserDB
+//     note.save()
+//         .then(doc =>console.log(doc))
+//         .catch(err => console.log(err));
+// }
 
 module.exports = Note;

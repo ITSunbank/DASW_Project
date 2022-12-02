@@ -10,7 +10,7 @@ function tagToHtml(tag) {
                 <p class="list-item1" style="font-family:Montserrat; font-weight: bold;">${tag.description}</p>
             </td>
             <td class="allign right">
-                        <button type="button" class="btn btn-danger mx-md-1" onclick="removeTag('${tag.uuid}')"><i
+                        <button type="button" class="btn btn-danger mx-md-1" onclick="removeTag('${tag.title}')"><i
                         class="fa fa-trash"></i>
                         </td>
         </tr>
@@ -32,7 +32,7 @@ loadTags(tagsUrl);
 
 function tagToHtmlM2O(tag) {
     return `
-    <option>${tag._title}</option>`
+    <option>${tag.title}</option>`
 }
 
 function tagListToHTMLM2O(tagList) {
@@ -50,19 +50,20 @@ loadTagM2O(tagsUrl);
 //------- Add Tag -------
 document.getElementById('tagbtn').addEventListener("click",function(){
     let tag = {
-        _title : document.getElementById("tagname").value,
-        _description : document.getElementById("descTag").value
+        title : document.getElementById("tagname").value,
+        description : document.getElementById("descTag").value
     }
     loadMyTags(tagsUrl, tag, tags => {
         tag.tags = tags;
-        window.location.href = 'Etiquetas';
+        location.href = 'Etiquetas.html';
     });
 });
 
 
-function removeTag(uuid) {
+function removeTag(title) {
     // get delete modal user email and remove it from the server
-    DeleteMyNote(tagsUrl + uuid, (msg) => console.log(msg), (err) => console.log(err));
+    DeleteMyTag(tagsUrl + title, (msg) => console.log(msg), (err) => console.log(err));
+    location.href = 'Etiquetas.html';
 }
 
 

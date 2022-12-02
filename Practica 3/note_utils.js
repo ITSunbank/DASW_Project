@@ -11,7 +11,7 @@ function noteToHtml(note) {
             <div class="atributos"></div>
             <p class="card-text">#${note.tag} <i class="fa fa-check" style="color:green"></i></p>
             <p class="card-text">${note.description} <i class="fa fa-check" style="color:green"></i></p>
-            <button class="btn btn-danger mx-md-1" id="delnote" onclick="removeNote('${note.uuid}')"><i class="fa fa-trash"data-toggle="modal" data-target="#deleteNote" ></i></button>
+            <button class="btn btn-danger mx-md-1" id="delnote" onclick="removeNote('${note.title}')"><i class="fa fa-trash"></i></button>
         </div>
     </div>`
 }
@@ -28,32 +28,21 @@ loadNotes(notesUrl).then(notes => {
 
 loadNotes(notesUrl);
 
-// document.getElementById('notebtn').addEventListener("click",function(){
-//     let note = {
-//         _title : document.getElementById("notename").value,
-//         _tag : document.getElementById("tagM2O").value,
-//         _description : document.getElementById("descNote").value
-//     }
-//     loadMyNotes(notesUrl, note, notes => {
-//         note.notes = notes;
-//         window.location.href = 'MisNotas';
-//     });
-    // let newNote = {
-    //     title: document.getElementById("notename").value,
-    //     tag: document.getElementById("tagM2O").value,
-    //     description : document.getElementById("descNote").value
-    // }
-    
-    // let note = Note(newNote);
-    
-    // //Guardamos el usuario en nuestra UserDB
-    // note.save()
-    //     .then(doc =>console.log(doc))
-    //     .catch(err => console.log(err));
-// })
+document.getElementById('notebtn').addEventListener("click",function(){
+    let note = {
+        title : document.getElementById("notename").value,
+        tag : document.getElementById("tagM2O").value,
+        description : document.getElementById("descNote").value
+    }
+    loadMyNotes(notesUrl, note, notes => {
+        note.notes = notes;
+        location.href='MisNotas.html';
+    });
+})
 
-// function removeNote(uuid) {
-//     // get delete modal user email and remove it from the server
-//     DeleteMyNote(notesUrl + uuid, (msg) => console.log(msg), (err) => console.log(err));
-// }
+function removeNote(title) {
+    // get delete modal user email and remove it from the server
+    DeleteMyNote(notesUrl + title, (msg) => console.log(msg), (err) => console.log(err));
+    location.href='MisNotas.html';
+}
 

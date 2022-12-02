@@ -1,5 +1,7 @@
 "use strict";
 
+// const Note = require('./../Practica 3/app/models/note');
+
 const express = require('express');
 const router = express.Router();
 

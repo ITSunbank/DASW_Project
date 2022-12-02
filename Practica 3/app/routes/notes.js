@@ -9,7 +9,7 @@ router.route('/')
     .get((req, res) => dataHandler.getNotes(req, res))
     .post((req, res) => dataHandler.createNote(req, res));
 
-router.route('/:id')
+router.route('/:title')
     .put((req, res) => dataHandler.getNoteById(req, res))
     .delete((req, res) => dataHandler.deleteNote(req, res));
 
