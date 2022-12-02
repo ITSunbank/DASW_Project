@@ -124,13 +124,27 @@ function getUsers(req, res) {
 }
 
 function getUserByEmail(req, res) {
-    let email = req.params.email;
+    let login = false;
+    let email = req.params.correo;
+    let password = req.params.contraseña;
 
     User.findOne({
-            'email': `${email}`
+            'correo': `${email}`
         })
         .then(user => res.status(200).json(user))
+        .then(login = true)
         .catch(err => res.status(400).send(err));
+    if(login == true) {
+            
+        User.findOne({
+            'contraseña': `${password}`
+        })
+        .then(user => res.status(200).json(user))
+        .then(login = true)
+        .catch(err => res.status(400).send(err));
+    }
+
+
 }
 
 function createUser(req, res) {

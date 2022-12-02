@@ -13,16 +13,4 @@ let tagSchema = mongoose.Schema({
 //(Ahora creamos el modelo)
 let Tag = mongoose.model('tag', tagSchema);
 
-// let newTag = {
-//     title: "Ana",
-//     description: "Gonzalez"
-// }
-
-// let tag = Tag(newTag);
-
-// //Guardamos el usuario en nuestra UserDB
-// tag.save()
-// .then(doc =>console.log(doc))
-// .catch(err => console.log(err));
-
 module.exports = Tag;
