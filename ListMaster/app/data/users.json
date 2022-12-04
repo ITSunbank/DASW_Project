@@ -1,0 +1,19 @@
+[{
+    "_uuid": "e4113128-ebe0-447c-ad20-90265f0bfd8t",
+    "_nombre": "Christian",
+    "_apellido": "Pereda",
+    "_correo": "christian.pereda@iteso.mx",
+    "_contraseña": "impossibleToHack"
+}, {
+    "_uuid": "e4113128-ebe0-447c-ad20-90265f0bfd8o",
+    "_nombre": "Sebastian",
+    "_apellido": "Vallejo",
+    "_correo": "oscar.vallejo@iteso.mx",
+    "_contraseña": "impossibleToHack2"
+}, {
+    "_uuid": "151a348e-fd4b-49d8-8540-366ad2be2eb8",
+    "_nombre": "Ana",
+    "_apellido": "Gonzalez",
+    "_correo": "ana.anaya@iteso.mx",
+    "_contraseña": "LaMejorContraseniaDelMundo2"
+}]
